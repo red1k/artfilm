@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Navigation.css";
+import "./Navbar.css";
 
-function Navigation() {
+function Navbar() {
   return (
     <nav>
       <ul className="nav-links">
@@ -20,4 +20,4 @@ function Navigation() {
   );
 }
 
-export default Navigation;
+export default Navbar;

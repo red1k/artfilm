@@ -1,23 +1,17 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
+import React, { useState, useMemo } from "react";
+import { UserContext } from "./pages/UserContext";
+import Navigation from "./Navigation";
 
 import "./App.css";
 
-import Home from "./pages/HomeScreen/Home";
-import Login from "./pages/LoginScreen/Login";
-import Register from "./pages/RegisterScreen/Register";
-import Navigation from "./pages/Navigation";
-
 function App() {
+  const [user, setUser] = useState(null);
+  const providerValue = useMemo(() => ({ user, setUser }), [user, setUser]);
   return (
     <div className="container">
-      <Navigation />
-      <Routes>
-        <Route path="/" exact element={<Home />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-      </Routes>
+      <UserContext.Provider value={providerValue}>
+        <Navigation />
+      </UserContext.Provider>
     </div>
   );
 }

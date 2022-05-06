@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "../../Firebase";
+import { useNavigate } from "react-router-dom";
 
-function Login() {
+function Login({ setIsAuth }) {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [user, setUser] = useState({});
+
+  let navigate = useNavigate();
 
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
@@ -13,14 +16,19 @@ function Login() {
 
   const login = async () => {
     try {
-      const user = await signInWithEmailAndPassword(auth, email, password);
-      console.log(user);
+      await signInWithEmailAndPassword(auth, email, password);
+      localStorage.setItem("isAuth", true);
+      setIsAuth(true);
+      navigate("/");
     } catch (error) {
       console.log(error.message);
     }
   };
   const logout = async () => {
-    await signOut(auth);
+    await signOut(auth).then(() => {
+      localStorage.clear();
+      setIsAuth(false);
+    });
   };
 
   return (

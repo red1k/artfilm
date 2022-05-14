@@ -5,13 +5,11 @@ import {
 	signOut,
 } from "firebase/auth";
 import { auth } from "./Firebase";
-import { useNavigate } from "react-router-dom";
 
 const UserContext = createContext();
 
 export function UserContextProvider(props) {
 	const [user, setUser] = useState(null);
-	const navigate = useNavigate();
 
 	useEffect(() => {
 		onAuthStateChanged(auth, (currentUser) => {
@@ -22,9 +20,8 @@ export function UserContextProvider(props) {
 	const login = (email, password) => {
 		try {
 			signInWithEmailAndPassword(auth, email, password);
-			navigate("/");
 		} catch (error) {
-			console.log(error.message);
+			console.error(error.message);
 		}
 	};
 

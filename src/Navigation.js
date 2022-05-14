@@ -10,8 +10,8 @@ import "./Navigation.css";
 
 function Navigation() {
 	return (
-		<Router>
-			<UserContextProvider>
+		<UserContextProvider>
+			<Router>
 				<nav>
 					<ul className="nav-links">
 						<Link to="home">
@@ -31,8 +31,8 @@ function Navigation() {
 					<Route path="/login" element={<Login />} />
 					<Route path="/register" element={<Register />} />
 				</Routes>
-			</UserContextProvider>
-		</Router>
+			</Router>
+		</UserContextProvider>
 	);
 }
 

@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBf_xfcHZancp5EI7QvVfpYNxl4XmK5EmQ",
-  authDomain: "artfilm-d65a3.firebaseapp.com",
-  projectId: "artfilm-d65a3",
-  storageBucket: "artfilm-d65a3.appspot.com",
-  messagingSenderId: "227848485995",
-  appId: "1:227848485995:web:a92bc6242700f3489cc52e",
+	apiKey: "AIzaSyBf_xfcHZancp5EI7QvVfpYNxl4XmK5EmQ",
+	authDomain: "artfilm-d65a3.firebaseapp.com",
+	projectId: "artfilm-d65a3",
+	storageBucket: "artfilm-d65a3.appspot.com",
+	messagingSenderId: "227848485995",
+	appId: "1:227848485995:web:a92bc6242700f3489cc52e",
 };
 
 const app = initializeApp(firebaseConfig);

@@ -19,7 +19,9 @@ export function UserContextProvider(props) {
 
 	const login = (email, password) => {
 		try {
-			signInWithEmailAndPassword(auth, email, password);
+			signInWithEmailAndPassword(auth, email, password).catch((error) => {
+				alert(error.message);
+			});
 		} catch (error) {
 			console.error(error.message);
 		}

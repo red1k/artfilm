@@ -1,13 +1,14 @@
 import React from "react";
 import Navigation from "./Navigation";
-
-import "./App.css";
+import { UserContextProvider } from "./UserContext";
 
 function App() {
 	return (
-		<div className="container">
-			<Navigation />
-		</div>
+		<UserContextProvider>
+			<div>
+				<Navigation />
+			</div>
+		</UserContextProvider>
 	);
 }
 
